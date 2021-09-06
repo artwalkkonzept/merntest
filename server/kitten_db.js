@@ -50,7 +50,7 @@ class Db {
      * @param count The amount of kittens to add.
      * @returns {Promise} Resolves when everything has been saved.
      */
-    async bootstrap(count = 10) {
+    async bootstrap(count = 15) {
         const hobbies = ['sleeping', 'purring', 'eating', 'people watching'];
         function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1) + min);
