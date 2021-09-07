@@ -30,7 +30,7 @@ class App extends Component {
     }
 
     getArtwalk(id) {
-        // Find the relevant Artwalk by id
+        // Find the relevant artwalk by id
         return this.state.artwalks.find(k => k._id === id);
     }
 
@@ -38,7 +38,7 @@ class App extends Component {
         return (
             <>
                 <Router>
-                    <Artwalk path="/artwalk/:id" getKrtwalk={id => this.getArtwalk(id)}/>
+                    <Artwalk path="/artwalk/:id" getArtwalk={id => this.getArtwalk(id)}/>
                     <Artwalks path="/" artwalks={this.state.artwalks}/>
                 </Router>
             </>

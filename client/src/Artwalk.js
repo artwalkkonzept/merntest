@@ -10,9 +10,9 @@ class Artwalk extends Component {
                 <>
                     <h1>{artwalk.name}</h1>
 
-                    <h3>Hobbies</h3>
+                    <h3>Bilds</h3>
                     <ul>
-                        {artwalk.hobbies.map(h => <li key={h}>{h}</li>)}
+                        {artwalk.bilds.map(h => <li key={h}>{h}</li>)}
                     </ul>
 
                     <Link to="/">Back</Link>
@@ -23,3 +23,4 @@ class Artwalk extends Component {
 }
 
 export default Artwalk;
+

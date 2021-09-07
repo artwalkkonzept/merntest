@@ -7,7 +7,7 @@ class Db {
         // This is the schema we need to store artwalks in MongoDB
         const artwalkSchema = new mongoose.Schema({
             name: String,
-            hobbies: [String] // A list of hobbies as string
+            bilds: [String] // A list of bilds as string
         });
 
         // This model is used in the methods of this class to access artwalks
@@ -38,10 +38,10 @@ class Db {
         return await artwalk.save();
     }
 
-    async addHobby(artwalkId, hobby) {
+    async addBild(artwalkId, bild) {
         // TODO: Error handling
         const artwalk = await this.getArtwalk(artwalkId);
-        artwalk.hobbies.push(hobby);
+        artwalk.bilds.push(bild);
         return await artwalk.save();
     }
 
@@ -50,22 +50,22 @@ class Db {
      * @param count The amount of artwalks to add.
      * @returns {Promise} Resolves when everything has been saved.
      */
-    async bootstrap(count = 15) {
-        const hobbies = ['sleeping', 'purring', 'eating', 'people watching'];
+    async bootstrap(count = 10) {
+        const bilds = ['Bild 1', 'Bild 2', 'Bild 3', 'Bild 4','Bild 5', 'Bild 6', 'Bild 7', 'Bild 8', 'Bild 9', 'Bild 10'];
         function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1) + min);
         }
 
         function getRandomName() {
-            return ['ZKM-Tour', 'Landschaften', 'Impressionistische Landschaften', 'Snowball'][getRandomInt(0,3)]
+            return ['ZKM-Tour', 'Landschaften', 'Imprissionistische Landschaften', 'Tour'][getRandomInt(0,3)]
         }
 
-        function getRandomHobbies() {
-            const shuffled = hobbies.sort(() => 0.5 - Math.random());
+        function getRandomBilds() {
+            const shuffled = bilds.sort(() => 0.5 - Math.random());
             return shuffled.slice(0, getRandomInt(1,shuffled.length));
         }
 
-        let l = (await this.getaArtwalks()).length;
+        let l = (await this.getArtwalks()).length;
         console.log("Artwalk collection size:", l);
 
         if (l === 0) {
@@ -74,7 +74,7 @@ class Db {
             for (let i = 0; i < count; i++) {
                 let artwalk = new this.artwalkModel({
                     name: getRandomName(),
-                    hobbies: getRandomHobbies()
+                    bilds: getRandomBilds()
                 });
                 promises.push(artwalk.save());
             }

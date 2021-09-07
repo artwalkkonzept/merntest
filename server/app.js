@@ -14,11 +14,11 @@ app.use(morgan('combined')); // Log all requests to the console
 app.use(express.static('../client/build')); // Needed for serving production build of React
 
 /**** Database ****/
-const artwalkDB = require('./artwalk_db')(mongoose);
+const artwalkDB = require('./ArtWalk_db')(mongoose);
 
 /**** Routes ****/
 app.get('/api/artwalks', async (req, res) => {
-    const artwalks = await krtwalkDB.getArtwalks();
+    const artwalks = await artwalkDB.getArtwalks();
     res.json(artwalks);
 });
 
@@ -31,16 +31,16 @@ app.get('/api/artwalks/:id', async (req, res) => {
 app.post('/api/artwalks', async (req, res) => {
     let artwalk = {
         name : req.body.name,
-        hobbies : [] // Empty hobby array
+        bilds : [] // Empty bild array
     };
     const newArtwalk = await artwalkDB.createArtwalk(artwalk);
     res.json(newArtwalk);
 });
 
-app.post('/api/artwalks/:id/hobbies', async (req, res) => {
+app.post('/api/artwalks/:id/bilds', async (req, res) => {
     const id = req.params.id;
-    const hobby = req.body.hobby;
-    const updatedArtwalk = await artwalkDB.addHobby(id, hobby);
+    const bbild = req.body.bild;
+    const updatedArtwalk = await artwalkDB.addBild(id, bild);
     res.json(updatedArtwalk);
 });
 
@@ -51,7 +51,7 @@ app.get('*', (req, res) =>
 );
 
 /**** Start ****/
-const url = process.env.MONGO_URL || 'mongodb://localhost/artwalk_db';
+const url = process.env.MONGO_URL || 'mongodb://localhost/ArtWalk_db';
 mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(async () => {
         await artwalkDB.bootstrap(); // Fill in test data if needed.

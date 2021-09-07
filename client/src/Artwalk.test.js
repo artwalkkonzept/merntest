@@ -6,8 +6,8 @@ import Artwalk from './Artwalk';
 // Some test data for the tests.
 const artwalk = {
     id: 42,
-    name: "Tom",
-    hobbies: ["sleeping", "purring", "people watching", "eating"]
+    name: "Tour",
+    bilds: ["Bild 1", "Bild 2", "Bild 3", "Bild 4", "Bild 5", "Bild 6", "Bild 7", "Bild 8", "Bild 9", "Bild 10"]
 };
 
 it('renders the name of the artwalk', () => {
@@ -16,16 +16,16 @@ it('renders the name of the artwalk', () => {
     expect(getByText(artwalk.name)).toBeInTheDocument();
 });
 
-it('renders the "Hobbies" header', () => {
+it('renders the "Bilds" header', () => {
     const comp = <Artwalk getArtwalk={_ => artwalk}/>;
     const {getByText} = render(comp);
-    expect(getByText("Hobbies")).toBeInTheDocument();
+    expect(getByText("Bilds")).toBeInTheDocument();
 });
 
-it('renders each hobby', () => {
+it('renders each bild', () => {
     const comp = <Artwalk getArtwalk={_ => artwalk}/>;
     const {getByText} = render(comp);
-    artwalk.hobbies.forEach(h => expect(getByText(h)).toBeInTheDocument());
+    artwalk.bilds.forEach(h => expect(getByText(h)).toBeInTheDocument());
 });
 
 it('renders the "Back" link', () => {
