@@ -14,7 +14,7 @@ app.use(morgan('combined')); // Log all requests to the console
 app.use(express.static('../client/build')); // Needed for serving production build of React
 
 /**** Database ****/
-const artwalkDB = require('./ArtWalk_db')(mongoose);
+const artwalkDB = require('./artwalk_db')(mongoose);
 
 /**** Routes ****/
 app.get('/api/artwalks', async (req, res) => {
@@ -51,7 +51,7 @@ app.get('*', (req, res) =>
 );
 
 /**** Start ****/
-const url = process.env.MONGO_URL || 'mongodb://localhost/ArtWalk_db';
+const url = process.env.MONGO_URL || 'mongodb://localhost/artwalk_db';
 mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(async () => {
         await artwalkDB.bootstrap(); // Fill in test data if needed.
