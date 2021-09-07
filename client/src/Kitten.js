@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
 import {Link} from "@reach/router";
 
-class Artwalk extends Component {
+class Kitten extends Component {
     render() {
-        const artwalk = this.props.getArtwalk(this.props.id);
+        const kitten = this.props.getKitten(this.props.id);
         let content = <p>Loading</p>;
-        if (artwalk) {
+        if (kitten) {
             content =
                 <>
-                    <h1>{artwalk.name}</h1>
+                    <h1>{kitten.name}</h1>
 
-                    <h3>Bilds</h3>
+                    <h3>Hobbies</h3>
                     <ul>
-                        {artwalk.bilds.map(h => <li key={h}>{h}</li>)}
+                        {kitten.hobbies.map(h => <li key={h}>{h}</li>)}
                     </ul>
 
                     <Link to="/">Back</Link>
@@ -22,5 +22,4 @@ class Artwalk extends Component {
     }
 }
 
-export default Artwalk;
-
+export default Kitten;
