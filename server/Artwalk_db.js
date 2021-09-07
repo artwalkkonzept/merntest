@@ -50,10 +50,10 @@ class Db {
      * @param count The amount of artwalks to add.
      * @returns {Promise} Resolves when everything has been saved.
      */
-    async bootstrap(count = 10) {
+    async bootstrap(count = 4) {
         const bilds = ['Bild 1', 'Bild 2', 'Bild 3', 'Bild 4','Bild 5', 'Bild 6', 'Bild 7', 'Bild 8', 'Bild 9', 'Bild 10'];
         function getRandomInt(min, max) {
-            return Math.floor(Math.random() * (max - min + 1) + min);
+            return Math.floor(Math.random() * (4) + min);
         }
 
         function getRandomName() {
