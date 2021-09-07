@@ -7,7 +7,7 @@ import Artwalk from './Artwalk';
 const artwalk = {
     id: 42,
     name: "Tom",
-    bilds: ["sleeping", "purring", "people watching", "eating"]
+    bilds: ["Bild 1", "Bild 2", "Bild 3", "Bild 4", "Bild 5", "Bild 6", "Bild 7", "Bild 8", "Bild 9", "Bild 10"]
 };
 
 it('renders the name of the artwalk', () => {

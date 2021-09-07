@@ -51,13 +51,13 @@ class Db {
      * @returns {Promise} Resolves when everything has been saved.
      */
     async bootstrap(count = 10) {
-        const bilds = ['sleeping', 'purring', 'eating', 'people watching'];
+        const bilds = ['Bild 1', 'Bild 2', 'Bild 3', 'Bild 4','Bild 5', 'Bild 6', 'Bild 7', 'Bild 8', 'Bild 9', 'Bild 10'];
         function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1) + min);
         }
 
         function getRandomName() {
-            return ['Garfield', 'Tom', 'Felix', 'Snowball'][getRandomInt(0,3)]
+            return ['ZKM-Tour', 'Landschaften', 'Imprissionistische Landschaften', 'Tour'][getRandomInt(0,3)]
         }
 
         function getRandomBilds() {
