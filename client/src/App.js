@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Router} from "@reach/router";
-import Kitten from "./Kitten";
-import Kittens from "./Kittens";
+import Artwalk from "./Artwalk";
+import Artwalks from "./Artwalks";
 
 class App extends Component {
     // API url from the file '.env' OR the file '.env.development'.
@@ -11,35 +11,35 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            kittens: []
+            artwalks: []
         };
     }
 
     componentDidMount() {
         // Get everything from the API
-        this.getKittens().then(() => console.log("Kittens gotten!"));
+        this.getArtwalks().then(() => console.log("Artwalks gotten!"));
     }
 
-    async getKittens() {
-        let url = `${this.API_URL}/kittens`; // URL of the API.
+    async getArtwalks() {
+        let url = `${this.API_URL}/artwalks`; // URL of the API.
         let result = await fetch(url); // Get the data
         let json = await result.json(); // Turn it into json
         return this.setState({ // Set it in the state
-            kittens: json
+            artwalks: json
         })
     }
 
-    getKitten(id) {
-        // Find the relevant kitten by id
-        return this.state.kittens.find(k => k._id === id);
+    getArtwalk(id) {
+        // Find the relevant Artwalk by id
+        return this.state.artwalks.find(k => k._id === id);
     }
 
     render() {
         return (
             <>
                 <Router>
-                    <Kitten path="/kitten/:id" getKitten={id => this.getKitten(id)}/>
-                    <Kittens path="/" kittens={this.state.kittens}/>
+                    <Artwalk path="/artwalk/:id" getKrtwalk={id => this.getArtwalk(id)}/>
+                    <Artwalks path="/" artwalks={this.state.artwalks}/>
                 </Router>
             </>
         );
