@@ -3,6 +3,8 @@ import {Router} from "@reach/router";
 import Artwalk from "./Artwalk";
 import Artwalks from "./Artwalks";
 
+import Gallery from "./Component/Gallery";
+
 class App extends Component {
     // API url from the file '.env' OR the file '.env.development'.
     // The first file is only used in production.
@@ -41,6 +43,7 @@ class App extends Component {
                     <Artwalk path="/artwalk/:id" getArtwalk={id => this.getArtwalk(id)}/>
                     <Artwalks path="/" artwalks={this.state.artwalks}/>
                 </Router>
+                <Gallery/>
             </>
         );
     }
