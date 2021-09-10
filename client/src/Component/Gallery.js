@@ -1,4 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
+import logo from '../content/ArtWalk_Logo final_ww.png';
+export default class Header extends Component {
+  render() {
+    return (
+      <div className="row">
+        <div className="logo">
+          <img alt="" src={logo} width="270" />
+        </div>
+      </div>
+    );
+  }
+} 
+
+/*import React from 'react';
 
 let urlm = {
   imageUrl1:"http://prfrankild.dk/ArtWalk_Logo%20final_ww.png"
@@ -16,4 +30,4 @@ function Gallery(props) {
 );
 }
 
-export default Gallery;
+export default Gallery;*/
