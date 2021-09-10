@@ -19,7 +19,7 @@ class App extends Component {
 
     componentDidMount() {
         // Get everything from the API
-        this.getArtwalks().then(() => console.log("Artwalks gotten!"));
+        this.getArtwalks().then(() => console.log("Artwalks got it!"));
     }
 
     async getArtwalks() {
