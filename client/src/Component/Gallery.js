@@ -15,7 +15,7 @@ export default class Header extends Component {
 /*import React from 'react';
 
 let urlm = {
-  imageUrl1:"http://prfrankild.dk/ArtWalk_Logo%20final_ww.png"
+  imageUrl1:"http://www.png"
 }
 
 function Gallery(props) {
