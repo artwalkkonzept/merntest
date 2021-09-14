@@ -13,11 +13,11 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <Route exact path="/">
+      <Route exact path="/api/">
         <RecordList />
       </Route>
-      <Route path="/edit/:id" component={Edit} />
-      <Route path="/create">
+      <Route path="/api/edit/:id" component={Edit} />
+      <Route path="/api/create">
         <Create />
       </Route>
     </div>

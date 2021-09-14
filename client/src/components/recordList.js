@@ -8,7 +8,7 @@ const Record = (props) => (
     <td>{props.record.article_title}</td>
     <td>{props.record.article_description}</td>
     <td>
-      <Link to={"/edit/" + props.record.id}>Edit</Link> |
+      <Link to={"/api/edit/" + props.record.id}>Edit</Link> |
       <a
         href="/"
         onClick={() => {
@@ -23,6 +23,8 @@ const Record = (props) => (
  
 export default class RecordList extends Component {
   // This is the constructor that shall store our data retrieved from the database
+ 
+  API_URL = process.env.REACT_APP_API_URL;
   constructor(props) {
     super(props);
     this.deleteRecord = this.deleteRecord.bind(this);
@@ -32,7 +34,7 @@ export default class RecordList extends Component {
   // This method will get the data from the database.
   componentDidMount() {
     axios
-      .get("http://localhost:5000/record/")
+      .get("/api/record/")
       .then((response) => {
         this.setState({ records: response.data });
       })
@@ -43,7 +45,7 @@ export default class RecordList extends Component {
 
   // This method will delete a record based on the method
   deleteRecord(id) {
-    axios.delete("http://localhost:5000/" + id).then((response) => {
+    axios.delete("/api/" + id).then((response) => {
       console.log(response.data);
     });
 
